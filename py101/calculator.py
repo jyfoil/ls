@@ -7,58 +7,48 @@
 import json
 
 with open('calculator_messages.json', 'r') as file:
-    data = json.load(file)
+    MESSAGES = json.load(file)
 
 def prompt(message):
     print(f'==> {message}')
 
 def invalid_number(number_str):
     try:
-        int(number_str)
+        float(number_str)
     except ValueError:
         return True
 
     return False
 
-# language = 'en'
-# prompt(data[language]["introduction"])
+def messages(message, lang='en'):
+    return MESSAGES[lang][message]
+
+language = 'en'
 
 while True:
 
-    prompt('What language would you like to display?\n 1) en 2) es 3) fr')
-    language = input()
+    prompt(messages('introduction', language))
 
-    while language not in ['1', '2', '3']:
-        prompt('You must choose en, es, or fr')
-        language = input()
-
-    if language == '1':
-        language = 'en'
-    elif language == '2':
-        language = 'es'
-    else:
-        language = 'fr'
-
-    prompt(data[language]["introduction"])
-
-    # language function goes here
-
-    prompt(data[language]["numbers"][0])
+    prompt(messages('numbers', language)[0])
     number1 = input()
 
     while invalid_number(number1):
-        prompt(data[language]["invalid"])
+        prompt(messages('invalid', language))
         number1 = input()
 
-    prompt(data[language]["numbers"][1])
+    prompt(messages('numbers', language)[1])
     number2 = input()
 
     while invalid_number(number2):
-        prompt(data[language]["invalid"])
+        prompt(messages('invalid', language))
         number2 = input()
 
-    prompt(data[language]["operation"])
+    prompt(messages('operation', language))
     operation = input()
+
+    while operation not in ['1', '2', '3', '4']:
+        prompt(messages('operation_choice', language))
+        operation = input()
 
     # if operation == '1':
     #     output = int(number1) + int(number2)
@@ -69,26 +59,21 @@ while True:
     # elif operation == '4':
     #     output = int(number1) / int(number2)
 
-    while operation not in ['1', '2', '3', '4']:
-        prompt(data[language]["operation_choice"])
-        operation = input()
-
     # Using match/case
 
     match operation:
         case '1':
-            output = int(number1) + int(number2)
+            output = float(number1) + float(number2)
         case '2':
-            output = int(number1) - int(number2)
+            output = float(number1) - float(number2)
         case '3':
-            output = int(number1) * int(number2)
+            output = float(number1) * float(number2)
         case '4':
-            output = int(number1) / int(number2)
+            output = float(number1) / float(number2)
 
-    prompt(data[language]["result"] + str(output))
-    prompt(data[language]["another_calculation"])
+    prompt(messages('result', language) + str(output))
+    prompt(messages('another_calculation', language))
     decision = input()
 
     if decision and decision[0].lower() == 'n':
         break
-
