@@ -20,24 +20,44 @@ def invalid_number(number_str):
 
     return False
 
-while True:
-    prompt(data["introduction"])
+# language = 'en'
+# prompt(data[language]["introduction"])
 
-    prompt(data["numbers"][0])
+while True:
+
+    prompt('What language would you like to display?\n 1) en 2) es 3) fr')
+    language = input()
+
+    while language not in ['1', '2', '3']:
+        prompt('You must choose en, es, or fr')
+        language = input()
+
+    if language == '1':
+        language = 'en'
+    elif language == '2':
+        language = 'es'
+    else:
+        language = 'fr'
+
+    prompt(data[language]["introduction"])
+
+    # language function goes here
+
+    prompt(data[language]["numbers"][0])
     number1 = input()
 
     while invalid_number(number1):
-        prompt(data["invalid"])
+        prompt(data[language]["invalid"])
         number1 = input()
 
-    prompt(data["numbers"][1])
+    prompt(data[language]["numbers"][1])
     number2 = input()
 
     while invalid_number(number2):
-        prompt(data["invalid"])
+        prompt(data[language]["invalid"])
         number2 = input()
 
-    prompt(data["operation"])
+    prompt(data[language]["operation"])
     operation = input()
 
     # if operation == '1':
@@ -50,7 +70,7 @@ while True:
     #     output = int(number1) / int(number2)
 
     while operation not in ['1', '2', '3', '4']:
-        prompt(data["operation_choice"])
+        prompt(data[language]["operation_choice"])
         operation = input()
 
     # Using match/case
@@ -65,8 +85,8 @@ while True:
         case '4':
             output = int(number1) / int(number2)
 
-    prompt(data["result"] + str(output))
-    prompt(data["another_calculation"])
+    prompt(data[language]["result"] + str(output))
+    prompt(data[language]["another_calculation"])
     decision = input()
 
     if decision and decision[0].lower() == 'n':

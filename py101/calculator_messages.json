@@ -1,10 +1,32 @@
 {
-    "introduction": "Welcome to Calculator!",
-    "invalid": "Hmm... that doesn't look like a valid number",
-    "numbers": ["What's the first number?", "What's the second number?"],
-    "operation": "What operation would you like to perform\n 1) Add 2) Subtract 3) Multiply 4) Divide",
-    "operation_choice": "You must choose 1, 2, 3, 4",
-    "result": "The result is ",
-    "another_calculation": "Would you like to perform another calculation?\n y/n"
+    "en": {
+        "introduction": "Welcome to Calculator!",
+        "invalid": "Hmm... that doesn't look like a valid number",
+        "numbers": ["What's the first number?", "What's the second number?"],
+        "operation": "What operation would you like to perform\n 1) Add 2) Subtract 3) Multiply 4) Divide",
+        "operation_choice": "You must choose 1, 2, 3, 4",
+        "result": "The result is ",
+        "another_calculation": "Would you like to perform another calculation?\n y/n"
+    },
+
+    "es": {
+        "introduction": "¡Bienvenido a Calculadora!",
+        "invalid": "Hmm... eso no parece un número válido",
+        "numbers": ["¿Cuál es el primer número?", "¿Cuál es el segundo número?"],
+        "operation": "¿Qué operación te gustaría realizar?\n 1) Sumar 2) Restar 3) Multiplicar 4) Dividir",
+        "operation_choice": "Debes elegir 1, 2, 3, 4",
+        "result": "El resultado es ",
+        "another_calculation": "¿Te gustaría realizar otro cálculo?\n s/n"
+    },
+
+    "fr": {
+        "introduction": "Bienvenue dans Calculatrice!",
+        "invalid": "Hmm... cela ne ressemble pas à un nombre valide",
+        "numbers": ["Quel est le premier nombre?", "Quel est le deuxième nombre?"],
+        "operation": "Quelle opération souhaitez-vous effectuer?\n 1) Additionner 2) Soustraire 3) Multiplier 4) Diviser",
+        "operation_choice": "Vous devez choisir 1, 2, 3, 4",
+        "result": "Le résultat est ",
+        "another_calculation": "Voulez-vous effectuer un autre calcul?\n o/n"
+    }
   }
   
